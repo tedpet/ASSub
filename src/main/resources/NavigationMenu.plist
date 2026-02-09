@@ -1,19 +1,40 @@
 (
 	{
 		name = Root;
-		children = ("Home","Tab1","Tab2");
+		directActionClass = DirectAction;
+		directActionName = default;
+		children = ("Home","Subscriptions");
 	},
 	{
 		name = "Home";
 		action = "session.navController.homeAction";
+		children = ("Logout");
 	},
 	{
-		name = Tab1;
-		action = "session.navController.homeAction";
+		name = "Subscriptions";
+		action = "session.navController.listSubscriptionsForUser";
+		children = ("CreateSubscription", "SearchSubscriptions");
 	},
 	{
-		name = Tab2;
-		action = "session.navController.homeAction";
+		name = "CreateSubscription";
+		displayName = "Create";
+		action = "session.navController.createSubscriptionAction";
+
+	},
+	{
+		name = SearchSubscriptions;
+		displayName = "Search";
+		action = "session.navController.searchSubscriptionAction";
+
+	},
+	{
+		name = Logout;
+		directActionName = "logout";
+		/*
+		You may specify the direct action class using the
+		directActionClass binding.
+		*/
+		directActionClass = "ERXDirectAction";
 	}
 
 )

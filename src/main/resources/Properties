@@ -13,7 +13,7 @@ er.extensions.ERXEnterpriseObject.updateInverseRelationships=true
 
 
 WOFrameworksBaseURL=/WebObjects/ASSub.woa/Contents/Frameworks
-er.directtoweb.ERD2WModel.additionalModelNames=("Person.d2wmodel")
+er.directtoweb.ERD2WModel.additionalModelNames=("d2wmodels/Person.d2wmodel")
 
 
 # Misc Components

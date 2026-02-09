@@ -34,7 +34,6 @@ public class Application extends ERXApplication {
 	 */
 
 	@Override
-
 	protected Class<? extends WOSession> _sessionClass() {
 		return Session.class;
 
@@ -48,7 +47,6 @@ public class Application extends ERXApplication {
 	 */
 
 	@Override
-
 	public void installPatches() {
 		super.installPatches();
 		ERXPatcher.setClassForName(Main.class, "Main");
