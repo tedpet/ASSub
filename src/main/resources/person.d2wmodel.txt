@@ -1,0 +1,7 @@
+(
+    100 : pageConfiguration = 'EditPerson' => templateNameForInspectPage = "ERMODTabInspectPage" [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'EditPerson' => displayPropertyKeys = ("firstName", "lastName", "login", "permissions.editsPeople", "permissions.addsSubscriptions") [com.webobjects.directtoweb.Assignment],
+    100 : pageConfiguration = 'EditPerson' => tabSectionsContents = (("One", "firstName", "lastName"), ("Permissions", "permissions.editsPeople", "permissions.addsSubscriptions")) [com.webobjects.directtoweb.Assignment],
+    100 : ((task = 'edit' and entity.name = 'Person') and (propertyKey = 'permissions.addsSubscriptions' or propertyKey = 'permissions.editsPeople')) => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment],
+    100 : ((task = 'edit' and (entity.name = 'Permissions' or entity.name = 'Person')) and (propertyKey = 'addsSubscriptions' or propertyKey = 'editsPeople')) => componentName = "D2WEditBoolean" [com.webobjects.directtoweb.Assignment]
+)

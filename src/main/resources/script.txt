@@ -1,0 +1,77 @@
+
+sudo mv ASSub.woapplication.tar.gz /opt/WOApplications/
+sudo mv ASSub.wowebserverresources.tar.gz /opt/WOWebServerResources/WebObjects
+cd /opt/WOApplications
+sudo tar -xvzf ASSub.woapplication.tar.gz
+sudo chown -R appserver:appserveradm ASSub.woa
+cd /opt/WOWebServerResources/WebObjects
+sudo tar -xvzf ASSub.wowebserverresources.tar.gz
+sudo chown -R appserver:appserveradm ASSub.woa
+sudo rm -R /opt/WOApplications/*.tar.gz
+sudo rm -R /opt/WOWebServerResources/WebObjects/*.tar.gz
+cd ~/
+
+
+
+
+ls -la /var/log/webobjects/
+
+
+sudo rm -R /opt/WOWebServerResources/WebObjects/ASS*
+sudo rm -R /opt/WOApplications/ASS*
+
+
+sudo vi /var/log/webobjects/
+
+rm /var/log/webobjects/B
+
+
+
+
+
+
+WOFrameworksBaseURL=/WebObjects/ASSub.woa/Contents/Frameworks
+
+
+principalClass = com.as.Application
+project.name = ASSub
+customInfoPListContent =
+project.name.lowercase = assub
+webXML = false
+webXML_CustomContent =
+classes.dir = target/classes
+jvmOptions=--add-exports java.base/sun.security.action=ALL-UNNAMED --add-exports java.base/sun.util.calendar=ALL-UNNAMED
+
+
+
+#
+#      ASSubscriptionsFW        
+#
+
+er.extensions.ERXModelGroup.ERCMessageAttachment.mailMessageId.ignoreTypeMismatch=true
+
+# Migrations
+er.migration.migrateAtStartup=true
+er.migration.createTablesIfNecessary=true
+#commented out to make the system not look to the model only
+
+
+# if you set the modelNames to the name of the EOModel, 
+# Migrations will automatically look for that name(0)
+# So
+er.migration.modelNames=ASMasterEOModel
+# will look for BriefModel0  automatically
+
+#er.migration.modelNames=ERAttachment,ERCoreBusinessLogic,ASMasterEOModel
+er.migration.modelNames=ASMasterEOModel
+
+
+ASMasterEOModel.MigrationClassPrefix=com.as.migrations.ASMasterEOModel
+
+# Connection Dictionary
+ dbConnectURLGLOBAL=jdbc:postgresql://ip-172-31-6-41.ec2.internal/assubscriptions?capitalizeTypenames=true&zeroDateTimeBehavior=convertToNull
+ dbConnectUserGLOBAL=wouser
+ dbConnectPasswordGLOBAL=3368
+ dbConnectPluginGLOBAL=PostgresqlPlugIn
+ dbConnectDriverGLOBAL=org.postgresql.Driver
+# dbEOPrototypesEntityGLOBAL=EOJDBCPostgresqlPrototypes

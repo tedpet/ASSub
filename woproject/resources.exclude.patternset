@@ -1,0 +1,4 @@
+**/*.woa/**
+**/*.framework/**
+**/Info.plist
+
